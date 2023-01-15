@@ -5,7 +5,7 @@ from Card import Card
 
 class Player:
 
-    def __init__(self, name, num_cards=26):
+    def __init__(self, name:str, num_cards=26):
         self.name=name
         self.number_cards=num_cards
         self.cards = []
