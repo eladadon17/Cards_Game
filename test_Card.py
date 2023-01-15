@@ -50,8 +50,17 @@ class TestCard(TestCase):
         self.assertFalse(card1 < card2)
 
     def test__gt__invalid_case(self):
-        card1 = Card(2, 4)
-        card2 = (2, 4)
+        card1 = (2, 4)
+        card2 = Card(2, 4)
         with self.assertRaises(TypeError):
-            (card1==card2)
-            (card2>card1)
+            card1 > card2
+
+    def test__eq__valid_case_true(self):
+        card1 = Card(2, 4)
+        card2 = Card(2, 4)
+        self.assertEqual(card2,card1)
+
+    def test__eq__valid_case_false(self):
+        card1 = Card(3, 4)
+        card2 = Card(2, 4)
+        self.assertFalse(card1==card2)
