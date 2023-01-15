@@ -4,6 +4,8 @@ class Card:
         """Setting the global parameters"""
         if type(suit)!=int:
             raise TypeError('Argument suit must be int')
+        if type(value)!=int:
+            raise TypeError('Argument value must be int')
         if value<1 or value>13:
             raise ValueError('Argument value must be a value between 1-13')
         if suit<1 or suit>4:
@@ -14,12 +16,14 @@ class Card:
 
     def __gt__(self, other):
         """ """
-        if type(other)!=Card:
-            raise TypeError('Can compare only between cards')
         if self.value==1 and other.value!=1:
             return True
+        if self.value!=1 and other.value==1:
+            return False
         if self.value == other.value and self.suit>other.suit:
             return True
+        if type(other)!=Card:
+            raise TypeError('Can compare only between cards')
         if self.value > other.value:
             return True
         else:
@@ -42,3 +46,5 @@ class Card:
         for j in dic2:
             s=dic2[self.suit]
         return f'{v}:{s}'
+
+
