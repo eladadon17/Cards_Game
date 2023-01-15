@@ -31,10 +31,27 @@ class TestCard(TestCase):
         card1=Card(13,4)
         card2=Card(1,4)
         self.assertTrue(card2>card1)
-
-
+        card1=Card(10,4)
+        card2=Card(10,1)
+        self.assertTrue(card1>card2)
+        card1=Card(10,2)
+        card2=Card(5,2)
+        self.assertTrue(card1>card2)
 
     def test__gt__valid_case_false(self):
         card1 = Card(13, 4)
         card2 = Card(1, 4)
         self.assertFalse(card2 < card1)
+        card1 = Card(10, 4)
+        card2 = Card(10, 1)
+        self.assertFalse(card1 < card2)
+        card1 = Card(10, 2)
+        card2 = Card(5, 2)
+        self.assertFalse(card1 < card2)
+
+    def test__gt__invalid_case(self):
+        card1 = Card(2, 4)
+        card2 = (2, 4)
+        with self.assertRaises(TypeError):
+            (card1==card2)
+            (card2>card1)
