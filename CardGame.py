@@ -12,6 +12,8 @@ class CardGame:
             raise TypeError('Argument name1 must be str')
         if type(name2)!=str:
             raise TypeError('Argument name2 must be str')
+        if num_cards2!=num_cards1:
+            num_cards2=num_cards1
         self.player1=Player(name1,num_cards1)
         self.player2=Player(name2, num_cards2)
         self.deck_cards=DeckOfCards()

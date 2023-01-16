@@ -25,7 +25,7 @@ class Player:
         if len(self.cards)>0:
             print('Player already have cards')
         else:
-            if len(deck_cards.cards)>=20:
+            if len(deck_cards.cards)>=self.number_cards:
                 for i in range(self.number_cards):
                     self.cards.append(deck_cards.deal_one())
             else:
