@@ -20,9 +20,13 @@ class DeckOfCards:
 
     def deal_one(self):
         # return self.deck.pop(randint(0, len(self.deck)-1))
-        c = choice(self.cards)
-        self.cards.remove(c)
-        return c
+        if len(self.cards)>0:
+            c = choice(self.cards)
+            self.cards.remove(c)
+            return c
+        else:
+            print('Out of cards')
+            return
 
 # deck1=DeckOfCards()
 # print(deck1.cards)

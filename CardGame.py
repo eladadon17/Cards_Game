@@ -4,8 +4,14 @@ from Deck_Of_Cards import DeckOfCards
 class CardGame:
 
     def __init__(self, name1, name2, num_cards1=26, num_cards2=26):
-        # if num_cards1 < 10 or quantity > 26:
-        #     quantity=26
+        if num_cards1 < 10 or num_cards1 > 26:
+            num_cards1=26
+        if num_cards2 < 10 or num_cards2 > 26:
+            num_cards2 = 26
+        if type(name1)!=str:
+            raise TypeError('Argument name1 must be str')
+        if type(name2)!=str:
+            raise TypeError('Argument name2 must be str')
         self.player1=Player(name1,num_cards1)
         self.player2=Player(name2, num_cards2)
         self.deck_cards=DeckOfCards()
